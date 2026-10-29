@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="یک آزمون کوتاه برای تمرین و یادگیری" />
+  <title>Quizly | آزمون کوتاه</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="صفحه اصلی Quizly">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span class="brand-name">Quiz<span>ly</span></span>
+      </a>
+
+      <div class="header-tag">
+        <span class="status-dot" aria-hidden="true"></span>
+        تمرین هوشمند
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- صفحه شروع آزمون -->
+      <section class="quiz-card start-screen" id="start-screen" aria-labelledby="start-title">
+        <div class="hero-icon" aria-hidden="true">
+          <span>?</span>
+        </div>
+
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> آماده‌ای شروع کنیم؟</p>
+        <h1 id="start-title">دانشت رو به چالش بکش</h1>
+        <p class="intro-text" id="start-description">
+          به ۱۰ سؤال پاسخ بده، امتیازت رو ببین و قدم‌به‌قدم پیشرفت کن.
+        </p>
+
+        <div class="feature-row" aria-label="ویژگی‌های آزمون">
+          <div class="feature-pill"><span aria-hidden="true">✓</span> ۱۰ سؤال</div>
+          <div class="feature-pill"><span aria-hidden="true">◷</span> بدون محدودیت زمان</div>
+          <div class="feature-pill"><span aria-hidden="true">✦</span> نتیجه فوری</div>
+        </div>
+
+        <button class="primary-btn" id="start-btn" type="button">
+          شروع آزمون <span class="button-arrow" aria-hidden="true">←</span>
+        </button>
+        <p class="small-note">آماده باش؛ هر سؤال یک فرصت برای یادگیریه.</p>
+      </section>
+
+      <!-- صفحه سؤال‌ها: سؤال و گزینه‌ها بعداً با JavaScript قرار می‌گیرند -->
+      <section class="quiz-card quiz-screen" id="quiz-screen" aria-labelledby="question-text" hidden>
+        <div class="quiz-top-row">
+          <div class="question-counter" aria-label="شماره سؤال">
+            <span class="muted-label">سؤال</span>
+            <strong id="question-number">1</strong>
+            <span class="counter-separator">از</span>
+            <strong id="total-questions">10</strong>
+          </div>
+
+          <div class="score-badge" aria-label="امتیاز فعلی">
+            <span class="score-star" aria-hidden="true">★</span>
+            <span class="muted-label">امتیاز</span>
+            <strong id="score-value">0</strong>
+          </div>
+        </div>
+
+        <div class="progress-track" role="progressbar" aria-label="پیشرفت آزمون" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+          <span class="progress-bar" id="progress-bar"></span>
+        </div>
+
+        <div class="question-content">
+          <p class="question-label">به این سؤال پاسخ بده</p>
+          <h2 id="question-text">متن سؤال اینجا نمایش داده می‌شود.</h2>
+        </div>
+
+        <div class="answer-list" id="answer-container" aria-labelledby="question-text">
+          <!-- گزینه‌ها با JavaScript ساخته می‌شوند -->
+        </div>
+
+        <p class="feedback-message" id="feedback-message" aria-live="polite" hidden></p>
+
+        <div class="quiz-footer">
+          <p class="answer-hint">یک گزینه را انتخاب کن</p>
+          <button class="primary-btn next-btn" id="next-btn" type="button" disabled>
+            سؤال بعدی <span class="button-arrow" aria-hidden="true">←</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- صفحه نتیجه -->
+      <section class="quiz-card result-screen" id="result-screen" aria-labelledby="result-title" hidden>
+        <div class="result-icon" id="result-icon" aria-hidden="true">✓</div>
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> آزمون به پایان رسید</p>
+        <h2 id="result-title">آفرین، تمومش کردی!</h2>
+        <p class="result-message" id="result-message">نتیجه آزمونت اینجاست؛ مهم اینه که تمرین کردی.</p>
+
+        <div class="result-score" aria-label="امتیاز نهایی">
+          <strong id="final-score">0</strong>
+          <span class="result-total">/ 10</span>
+          <span class="result-caption">امتیاز نهایی</span>
+        </div>
+
+        <button class="primary-btn" id="restart-btn" type="button">
+          دوباره امتحان کن <span class="button-arrow" aria-hidden="true">↻</span>
+        </button>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <span>قدم‌به‌قدم بهتر شو.</span>
+      <span>Quiz App</span>
+    </footer>
+  </div>
+</body>
+</html>
